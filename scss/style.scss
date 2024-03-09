@@ -11,11 +11,6 @@ body {
     background-color: #fff;
 }
 
-img {
-    margin: 0;
-    padding: 0;
-}
-
 .image-carousel {
     display: flex;
     justify-content: center;
@@ -29,27 +24,47 @@ img {
         flex-direction: column;
         align-items: center;
         width: 850px;
-        height: 480px;
-        background-color: tomato;
+        height: 525px;
 
         .images {
+            position: relative;
             width: 100%;
             height: 100%;
-            background-color: green;
-
+                
             .image {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 box-shadow: 0 0 15px black;
+                transition: .3s;
+                opacity: 0;
+            }
+
+            .active-image {
+                opacity: 1;
             }
         }
 
         .dots {
-            margin: 10px 0;
+            display: flex;
             padding: 5px;
             font-size: 15px;
             cursor: pointer;
             transition: scale .3s;
+
+            .dot {
+                margin: 10px 5px;
+
+                i {
+                    display: none;
+                }
+
+                .active-dot {
+                    display: block;
+                }
+            }
         }
 
         .dots:hover {
@@ -57,16 +72,17 @@ img {
         }
     }
 
-    .btn-left,
-    .btn-right {
-        padding: 5px 10px;
+    .btn {
         margin: 10px;
-        cursor: pointer;
-        transition: scale .3s;
     }
 
-    .btn-left:hover,
-    .btn-right:hover {
+    .btn i {
+        padding: 5px 10px;
+        transition: scale .3s;
+        cursor: pointer;
+    }
+
+    .btn i:hover {
         scale: 1.3;
     }
 }
